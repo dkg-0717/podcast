@@ -1,0 +1,23 @@
+.reverseButton__container {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reverseButton {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  background-image: url("../acercade.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,0 +1,87 @@
+.coverImage {
+  height: 40%;
+  width: 70%;
+  border-radius: 4px;
+  display: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player {
+  width: 500px;
+  height: 500px;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 2%;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  transition: all 400ms;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.2), 0 16px 28px rgba(0, 0, 0, 0.24);
+}
+
+.hideControls {
+  opacity: 0;
+}
+
+.progress-number {
+  margin-right: 5px;
+}
+.shadow {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 1;
+  position: absolute;
+  transition: all 700ms;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 20px; */
+}
+
+.buttonContainer > div {
+  margin: 10px;
+}
+
+/* medias */
+
+@media all and (orientation: portrait) {
+  .coverImage {
+    display: block;
+    height: 265px;
+    width: 250px;
+    border-radius: 4px;
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.2), 0 16px 28px rgba(0, 0, 0, 0.24);
+  }
+  .player {
+    width: inherit;
+    height: calc(100% - 60px);
+    position: relative;
+    box-shadow: unset;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: 0;
+  }
+}

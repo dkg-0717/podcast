@@ -1,0 +1,20 @@
+.info {
+  left: 30px;
+  bottom: 30px;
+  color: #ffffff;
+  position: absolute;
+}
+
+.title {
+  font-size: 1.3em;
+}
+
+@media all and (orientation: portrait) {
+  .info {
+    opacity: 0;
+    position: static;
+  }
+  .title {
+    font-size: 2em;
+  }
+}
