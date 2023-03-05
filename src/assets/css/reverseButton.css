@@ -21,3 +21,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.reversed-button {
+  width: 100%;
+  height: 30px;
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+}

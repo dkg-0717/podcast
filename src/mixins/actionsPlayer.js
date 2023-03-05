@@ -7,6 +7,7 @@ export default {
       sounds: ["fluir"],
       sound: null,
       playing: null,
+      secondsToFront: 10 * 1000
     };
   },
   methods: {
@@ -37,10 +38,10 @@ export default {
       this.tl.progress(0.25);
     },
     previusSound() {
-      this.sound.position = 0;
+      this.sound.position = this.sound.position - this.secondsToFront;
     },
     nextSound() {
-      console.log("click");
+      this.sound.position = this.sound.position + this.secondsToFront;
     },
     showControls() {
       gsap.set([this.backButton, this.nextButton], {
@@ -49,7 +50,7 @@ export default {
     },
     initSound() {
       this.playing = true;
-      this.sound = createjs.Sound.play("fluir");
+      this.sound = new createjs.Sound.play("fluir");
       this.sound.on("complete", this.stopInterval);
       this.initInterval();
     },

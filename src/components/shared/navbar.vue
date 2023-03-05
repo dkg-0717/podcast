@@ -1,10 +1,6 @@
 <template>
   <header>
-    <nav>
-      <figure>
-        <img src="@/assets/edBlanco.png" height="100" alt="" />
-      </figure>
-    </nav>
+    <img class="navbar-logo" src="@/assets/edBlanco.png" height="100" alt />
   </header>
 </template>
 

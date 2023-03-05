@@ -98,7 +98,7 @@ function handleError(msg) {
   console.log(msg);
 }
 
-window.onbeforeunload = function(e) {
+window.onbeforeunload = function (e) {
   quit();
 };
 

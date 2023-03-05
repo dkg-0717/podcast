@@ -8,6 +8,7 @@ export default {
     this.tl = gsap.timeline();
     this.player = document.querySelector(".player");
     this.reversePlayer = document.querySelector(".reversePlayer");
+    this.reverseButton = this.reversePlayer.querySelector('.reverseButton__container')
     this.containerProgressBar = document.querySelector(
       ".container-progress-bar"
     );
@@ -15,6 +16,7 @@ export default {
   methods: {
     reverseCard() {
       if (!this.player.classList.contains("reversed")) {
+        this.reverseButton.classList.add("reversed-button")
         this.player.classList.add("reversed");
         this.tl
           .to(this.player, { rotationY: 180 })
@@ -23,8 +25,11 @@ export default {
           .set(this.player, { zIndex: 0 })
           .set(this.reversePlayer, { zIndex: 1 });
       } else {
-        this.player.classList.remove("reversed");
         this.resetPosition();
+        this.player.classList.remove("reversed");
+        setTimeout(() => {
+          this.reverseButton.classList.remove("reversed-button")
+        }, 500)
       }
     },
     resetPosition() {

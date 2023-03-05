@@ -3,16 +3,12 @@
     <reverse-button />
     <div class="coverImage"></div>
     <!-- <div class="shadow"></div> -->
-    <soundName :soundName="getsoundName" />
+    <!-- <soundName :soundName="getsoundName" /> -->
     <loader v-show="loader" />
     <div class="buttonContainer">
       <back-button @previusSound="previusSound" />
-      <play-button-container
-        @playSound="playSound"
-        :isLoaded="isLoaded"
-        :playing="playing"
-      />
-      <next-button @click="nextSound" />
+      <play-button-container @playSound="playSound" :isLoaded="isLoaded" :playing="playing" />
+      <next-button @nextSound="nextSound" />
     </div>
     <progress-bar />
   </div>
@@ -28,7 +24,7 @@ import backButton from "@/components/backButton.vue";
 import nextButton from "@/components/nextButton.vue";
 import reverseButton from "@/components/reverseButton.vue";
 import progressBar from "@/components/progressBar.vue";
-import soundName from "@/components/soundName.vue";
+// import soundName from "@/components/soundName.vue";
 import familia from "../assets/familia.png";
 
 import actPlayer from "@/mixins/actionsPlayer";
@@ -41,22 +37,22 @@ export default {
     return {
       sound: null,
       isLoaded: false,
-      loader: false,
+      loader: false
     };
   },
   components: {
     loader,
     reverseButton,
-    soundName,
+    // soundName,
     progressBar,
     backButton,
     nextButton,
-    playButtonContainer,
+    playButtonContainer
   },
   computed: {
     getsoundName() {
       return this.sounds[0];
-    },
+    }
   },
   methods: {
     setBackground() {
@@ -67,7 +63,7 @@ export default {
       if (this.playing) {
         gsap.set([this.backButton, this.nextButton, this.playButton], {
           opacity: 1,
-          pointerEvents: "auto",
+          pointerEvents: "auto"
         });
       }
     },
@@ -95,17 +91,20 @@ export default {
       let l = ".player";
       let image = this.checkMedia() ? sm : l;
       this.checkMedia() ? this.removeImage(l) : this.removeImage(sm);
+      this.bg = this.checkMedia() ? "transparent" : "#fff";
       this.coverImage = document.querySelector(image);
+      this.player = document.querySelector(".player");
+      this.player.style.background = this.bg;
       this.coverImage.style.background = `#fff url(${require("../assets/portada.png")}) no-repeat center`;
       this.coverImage.style.backgroundSize = "cover";
-    },
+    }
   },
   mounted() {
     this.loader = true;
     this.loadSounds();
     this.getImage();
     window.addEventListener("resize", this.getImage);
-  },
+  }
 };
 </script>
 
